@@ -1,0 +1,315 @@
+/* ====== Tema: indigo / notte con accenti ambra ====== */
+:root {
+  --sfondo: #0f1226;
+  --sfondo-gradiente: radial-gradient(circle at 15% 0%, #23275a 0%, #0f1226 55%);
+  --card: #1a1e3d;
+  --card-bordo: #2c3266;
+  --testo: #eef0ff;
+  --testo-tenue: #9aa0d1;
+  --accento: #ffb547;
+  --accento-2: #7c8cff;
+  --ok: #4ade80;
+  --raggio: 18px;
+  --ombra: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  background: var(--sfondo-gradiente) fixed, var(--sfondo);
+  color: var(--testo);
+  font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-bordo);
+  border-radius: var(--raggio);
+  padding: 24px;
+  box-shadow: var(--ombra);
+}
+
+.titolo-card {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titolo-card::before {
+  content: '';
+  width: 6px;
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(var(--accento), var(--accento-2));
+}
+
+.etichetta {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--testo-tenue);
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.colonna {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- Profilo ---------- */
+.profilo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(120deg, #2a2f6e, #1a1e3d 70%);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #1a1e3d;
+  background: linear-gradient(135deg, var(--accento), #ff8a47);
+  box-shadow: 0 0 0 4px rgba(255, 181, 71, 0.25);
+}
+
+.nome {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ---------- Informazioni studente ---------- */
+.lista-info {
+  margin: 0;
+}
+
+.riga {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--card-bordo);
+}
+
+.riga:last-child {
+  border-bottom: none;
+}
+
+.riga dt {
+  color: var(--testo-tenue);
+}
+
+.riga dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---------- Valutazioni ---------- */
+.lista-valutazioni {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.valutazione {
+  --colore-valutazione: var(--accento-2);
+  --sfondo-valutazione: rgba(124, 140, 255, 0.08);
+  --sfondo-valutazione-hover: rgba(124, 140, 255, 0.16);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--sfondo-valutazione);
+  border-left: 4px solid var(--colore-valutazione);
+  border-radius: 10px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.valutazione--rosso {
+  --colore-valutazione: #f87171;
+  --sfondo-valutazione: rgba(248, 113, 113, 0.1);
+  --sfondo-valutazione-hover: rgba(248, 113, 113, 0.18);
+}
+
+.valutazione--arancione {
+  --colore-valutazione: #fb923c;
+  --sfondo-valutazione: rgba(251, 146, 60, 0.1);
+  --sfondo-valutazione-hover: rgba(251, 146, 60, 0.18);
+}
+
+.valutazione--verde {
+  --colore-valutazione: #4ade80;
+  --sfondo-valutazione: rgba(74, 222, 128, 0.1);
+  --sfondo-valutazione-hover: rgba(74, 222, 128, 0.18);
+}
+
+.valutazione:hover {
+  transform: translateX(4px);
+  background: var(--sfondo-valutazione-hover);
+}
+
+.valutazione-percentuale {
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+}
+
+.valutazione-voto {
+  min-width: 56px;
+  text-align: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #1a1e3d;
+  background: var(--colore-valutazione);
+}
+
+/* ---------- Frequenza ---------- */
+.frequenza-valore {
+  margin: 0 0 8px;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ok);
+}
+
+.frequenza-valore span {
+  font-size: 1.3rem;
+  margin-left: 2px;
+}
+
+.barra {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.barra-riempimento {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ok), #22d3ee);
+}
+
+.note {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--testo-tenue);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+/* ---------- Colloquio ---------- */
+.radio-gruppo {
+  display: flex;
+  gap: 16px;
+}
+
+.radio-gruppo label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.radio-gruppo input {
+  accent-color: var(--accento);
+  width: 16px;
+  height: 16px;
+}
+
+.motivazione {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.motivazione label {
+  color: var(--testo-tenue);
+  font-size: 0.9rem;
+}
+
+.motivazione textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--testo);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--card-bordo);
+  border-radius: 10px;
+  resize: vertical;
+}
+
+.motivazione textarea:focus {
+  outline: 2px solid var(--accento-2);
+  outline-offset: 1px;
+}
+
+.btn-salva {
+  align-self: flex-end;
+  padding: 8px 22px;
+  font: inherit;
+  font-weight: 600;
+  color: #1a1e3d;
+  background: var(--accento);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-salva:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 181, 71, 0.4);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+  padding: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
